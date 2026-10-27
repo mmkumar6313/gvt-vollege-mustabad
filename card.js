@@ -109,7 +109,7 @@
     ctx.font = '700 38px Segoe UI, "Roboto", sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
-    ctx.fillText(nameEl.value.trim() || 'Student Name', 319, 540);
+    ctx.fillText(nameEl.value.trim() || 'Student Name', 319, 560);
 
     // ---- Adm No (centered, mixed colors) ----
     const admSegs = [
@@ -118,7 +118,7 @@
       {text: admEl.value.trim(), font:'bold 25px Segoe UI, Roboto', color: DARK}
     ];
     const admWidth = measureSegments(ctx, admSegs);
-    drawSegments(ctx, admSegs, 319 - admWidth/2, 575);
+    drawSegments(ctx, admSegs, 319 - admWidth/2, 595);
 
     // ---- fields (label + colon + value), aligned to a fixed column ----
     const labelX = 100, colonGap = 10, valueGap = 10;
@@ -140,7 +140,7 @@
     const colonX = labelX + maxLabelWidth + colonGap;
     const valueX = colonX + valueGap + 6;
 
-    let y = 638;
+    let y = 658;
     fields.forEach(function(f, idx){
       const label = f[0], value = f[1];
       ctx.font = FONT_LABEL;
