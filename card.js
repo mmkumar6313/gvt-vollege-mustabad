@@ -84,17 +84,17 @@
     ctx.drawImage(template, 0, 0, TEMPLATE_W, TEMPLATE_H);
 
     // ---- photo ----
-    const pcx = 318.5, pcy = 377.5, pr = 108;
+    const photoX = 201, photoY = 273, photoW = 236, photoH = 236, photoRadius = 6;
     ctx.save();
     ctx.beginPath();
-    ctx.arc(pcx, pcy, pr, 0, Math.PI*2);
+    ctx.roundRect(photoX, photoY, photoW, photoH, photoRadius);
     ctx.clip();
     if(studentImg){
       const iw = studentImg.width, ih = studentImg.height;
-      const targetSize = pr*2;
-      const scale = Math.max(targetSize/iw, targetSize/ih);
+      const scale = Math.max(photoW/iw, photoH/ih);
       const dw = iw*scale, dh = ih*scale;
-      ctx.drawImage(studentImg, pcx-dw/2, pcy-dh/2, dw, dh);
+      const verticalShift = Math.min(12, Math.max(0, (dh-photoH)/2));
+      ctx.drawImage(studentImg, photoX+(photoW-dw)/2, photoY+(photoH-dh)/2+verticalShift, dw, dh);
     }
     ctx.restore();
 
